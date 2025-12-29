@@ -18,9 +18,9 @@ This is a **standalone showcase** intended for educational and portfolio purpose
 - Optional: Docker
 
 ## API Endpoints
-- `POST /auth/login` → Get access & refresh token
-- `POST /auth/refresh` → Issue new access token
-- `GET /auth/validate` → Validate token (protected)
+- `GET /auth/token/:userId` → Get access & refresh token
+- `POST /auth/token/refresh` → Issue new access token
+- `GET /auth/user` → Validate token (protected)
 
 ## Installation
 1. Clone the repository
