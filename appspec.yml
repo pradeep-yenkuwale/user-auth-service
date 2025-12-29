@@ -1,0 +1,35 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/app
+
+permissions:
+  - object: /home/ubuntu/app
+    owner: ubuntu
+    group: ubuntu
+    mode: 755
+    type:
+      - directory
+      - file
+
+hooks:
+  ApplicationStop:
+    - location: scripts/application_stop.sh
+      timeout: 120
+      runas: ubuntu
+
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: ubuntu
+
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: ubuntu
+
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 300
+      runas: ubuntu
